@@ -3,7 +3,10 @@ pipeline {
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "bencil/train-schedule"
+
+
         CANARY_REPLICAS = 0
+
     }
     stages {
         stage('Build') {
@@ -90,6 +93,9 @@ pipeline {
             }
         }
     }
+
+
+
     post {
         cleanup {
             kubernetesDeploy (
@@ -100,3 +106,4 @@ pipeline {
         }
     }
 }   
+
